@@ -1,0 +1,3 @@
+installare mysql client su dockerfile
+oppure dump direttamente da python
+come far partire il db nel container con dati caricati direttamente all'avvio guardare come funziona mysql su docker hub

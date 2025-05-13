@@ -1,15 +1,13 @@
-version: '3.8'
+
 
 services:
   mysql:
-    build:
-      context: .
-      dockerfile: Dockerfile.mysql
+    image: mysql:8.4
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_ROOT_PASSWORD: prova
       MYSQL_DATABASE: mydatabase
-      MYSQL_USER: root
-      MYSQL_PASSWORD:
+      MYSQL_USER: pino
+      MYSQL_PASSWORD: prova
     ports:
       - "3306:3306"
     volumes:
@@ -26,7 +24,7 @@ services:
       MYSQL_PORT: 3306
       MYSQL_DATABASE: mydatabase
       MYSQL_USER: root
-      MYSQL_PASSWORD: 
+      MYSQL_ROOT_PASSWORD: prova
     depends_on:
       - mysql
     ports:

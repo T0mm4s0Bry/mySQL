@@ -10,9 +10,9 @@ def get_db_connection():
     try:
         connection = mysql.connector.connect(
             host='mysql',  # Usa il nome del servizio MySQL nel tuo docker-compose (se usi Docker)
-            user='root',   # Sostituisci con l'utente corretto
-            password='',  # Sostituisci con la password corretta
-            database='mydatabase'  # Sostituisci con il nome del tuo database
+            user= os.environ["MYSQL_USER"],   # Sostituisci con l'utente corretto
+            password= os.environ["MYSQL_ROOT_PASSWORD"],  # Sostituisci con la password corretta
+            database= os.environ["MYSQL_DATABASE"]  # Sostituisci con il nome del tuo database
         )
         return connection
     except Error as e:
@@ -21,6 +21,7 @@ def get_db_connection():
 
 @app.route('/')
 def index():
+    get_db_connection();
     return render_template('index.html')
 
 @app.route('/environment')
